@@ -58,6 +58,7 @@ def upload_file():
         return send_file(output_image_path, as_attachment=True)
 
     return render_template('index.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)
+    
+port = int(os.environ.get("PORT", 5000))  # Default to 5000 if PORT is not set
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=port)
