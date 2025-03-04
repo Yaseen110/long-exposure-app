@@ -1,6 +1,9 @@
 services:
   - type: web
-    name: flask-app
+    name: long-exposure-app
     env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python app.py"
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PORT
+        value: 10000  # Change if needed
