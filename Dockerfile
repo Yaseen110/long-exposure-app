@@ -7,11 +7,14 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install any needed packages
+# Install system dependencies
+RUN apt-get update && apt-get install -y libgl1-mesa-glx
+
+# Install required Python packages
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the port Flask runs on
+# Expose the port that the app runs on
 EXPOSE 8080
 
-# Run the application
+# Command to run the application
 CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:app"]
