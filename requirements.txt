@@ -1,6 +1,6 @@
 flask
 gunicorn
-os
+os-sys
 opencv-python
 numpy
 flask_cors
