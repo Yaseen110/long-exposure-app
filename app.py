@@ -6,7 +6,7 @@ from werkzeug.utils import secure_filename
 from flask_cors import CORS  # Enable CORS for frontend requests
 
 app = Flask(__name__)
-CORS(app)  # Allow cross-origin requests
+CORS(app, resources={r"/*": {"origins": "*"}})  # Allow cross-origin requests
 
 UPLOAD_FOLDER = 'uploads'
 RESULT_FOLDER = 'results'
